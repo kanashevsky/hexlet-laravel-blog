@@ -13,10 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Костыльно, но нужно для одного из первых уроков
+$team = [
+    ['name' => 'Hodor', 'position' => 'programmer'],
+    ['name' => 'Joker', 'position' => 'CEO'],
+    ['name' => 'Elvis', 'position' => 'CTO'],
+];
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('about', function () {
-    return view('about');
+Route::get('about', function () use ($team) {
+    // BEGIN (write your solution here)
+    return view('about', ['team' => $team]);
+    // END
 });
